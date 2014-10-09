@@ -1,0 +1,6 @@
+html
+  - this.each do |city, tasks|
+    h1 = city
+    - tasks.each do |task, time|
+      h3 = task
+      =time
