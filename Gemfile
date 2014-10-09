@@ -1,0 +1,6 @@
+gem 'sinatra'
+gem 'slim'
+gem 'pry'
+gem 'fog'
+gem 'mechanize'
+gem 'rake'
