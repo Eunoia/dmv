@@ -1,6 +1,9 @@
 html
-  - this.each do |city, tasks|
-    h1 = city
-    - tasks.each do |task, time|
-      h3 = task
-      =time
+  head
+    title Soonest DMV Appointments in California
+  body
+    - this.each do |city, tasks|
+      h1 = city
+      - tasks.each do |task, time|
+        h3 = task
+        =time
