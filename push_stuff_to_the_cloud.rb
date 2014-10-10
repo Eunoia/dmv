@@ -1,5 +1,5 @@
 module PushStuffToTheCloud
-  def saveToS3(html)
+  def saveToS3(html,json)
     connection = Fog::Storage.new({
       :provider => "AWS",
       :endpoint => "http://s3.amazonaws.com",
@@ -11,6 +11,11 @@ module PushStuffToTheCloud
     file = directory.files.create(
       :key    => "index.html",
       :body   => html,
+      :public => true
+    )
+    file = directory.files.create(
+      :key    => "index.json",
+      :body   => json,
       :public => true
     )
     file.public_url

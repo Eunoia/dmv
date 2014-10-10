@@ -51,8 +51,9 @@ class CheckDMV
   def self.renderToS3(data)
     template = Slim::Template.new("index.slim")
     html = template.render(data)
+    json = data.to_json
     print html
-    saveToS3(html)
+    saveToS3(html,json)
   end
 
 end
