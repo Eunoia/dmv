@@ -2,6 +2,9 @@ html
   head
     title Soonest DMV Appointments in California
   body
+    small
+      | Document generated:
+      = Time.now.strftime "%v - %r"
     - this.each do |city, tasks|
       h1 = city
       - tasks.each do |task, time|
