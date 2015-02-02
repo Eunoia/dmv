@@ -5,7 +5,17 @@ html
     small
       | Document generated:
       = Time.now.strftime "%v - %r"
+      br
+    - bay_area = ["SAN FRANCISCO", "DALY CITY", "SAN MATEO", "REDWOOD CITY", "SANTA CLARA", "LOS GATOS", "SANTA TERESA", "SAN JOSE", "FREMONT", "PLEASANTON", "HAYWARD", "OAKLAND COLISEUM", "OAKLAND CLAREMONT", "WALNUT CREEK", "EL CERRITO", "CONCORD", "PITTSBURG", "CORTE MADERA", "NOVATO", "PETALUMA", "SANTA ROSA", "VALLEJO", "NAPA", "FAIRFIELD"]
+
+    h4 
+      | Bay Area: &nbsp;
+      - bay_area.each do |city|
+        a(href="##{city}")
+          =city.split.map(&:capitalize).join(" ")
+        | &nbsp;
     - this.each do |city, tasks|
+      a(name=city)
       h1 = city
       - tasks.each do |task, time|
         h3
