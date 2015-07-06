@@ -8,6 +8,16 @@ module PushStuffToTheCloud
       :aws_secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
     })
     directory = connection.directories.get("www.soonestdmvappointment.com")
+    directory.files.create(
+      :key    => "index-#{Time.now.to_i}.html",
+      :body   => html,
+      :public => true
+    )
+    directory.files.create(
+      :key    => "index-#{Time.now.to_i}.json",
+      :body   => json,
+      :public => true
+    )
     file = directory.files.create(
       :key    => "index.html",
       :body   => html,
