@@ -39,7 +39,7 @@ class Mechanize::HTTP::Agent
       end
 
       # Otherwise, shutdown the persistent HTTP connection and try again.
-      puts "**** WARN: Mechanize retrying connection reset error: #{action}"
+      puts "**** WARN: Mechanize retrying connection, #{retry_count} reset error: #{action}"
       retry_count += 1
       self.http.shutdown
       retry
